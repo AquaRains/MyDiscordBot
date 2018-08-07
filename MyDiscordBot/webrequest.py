@@ -3,6 +3,7 @@ import urllib.request
 import xml.etree.ElementTree as et
 
 
+
 def webReq():
     # f = urllib.request.urlopen('http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=159')
 
@@ -21,6 +22,7 @@ def webReq():
     value = {'stnId': zonecodes['전국']}
     f = urllib.request.urlopen(
         'http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=3114051000' + '?' + urllib.parse.urlencode(value))
+
 
     fstr = f.read().decode('utf-8')
 
