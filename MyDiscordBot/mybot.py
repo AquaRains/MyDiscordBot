@@ -51,7 +51,7 @@ async def on_message(message):
                 await client.send_message(channel,
                                         await message_operate(message.content))
             except Exception as b:
-                await client.send_message(channel, b)
+                await client.send_message(channel, '[' + text + ']라고? 그딴 명령어 읍는데요?')
                 pass
     else:
         if client.messageecho:
