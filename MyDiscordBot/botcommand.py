@@ -1,6 +1,5 @@
 import sys
 import asyncio
-import 
 
 commandlist = {'!커맨드': 'cmd_cmd',
                '!타이머': 'cmd_timer',
