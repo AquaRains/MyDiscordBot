@@ -1,4 +1,5 @@
 import sys
+import asyncio
 
 
 class botcommands:
@@ -15,6 +16,6 @@ class botcommands:
                    '!타이머': 'cmd_timer',
                    '!테스트': 'cmd_test'}
 
-    def runcommand(cmdname):
-        return local()[commandlist[cmdname]]()
+    async def runcommand(cmdname):
+        return await local()[commandlist[cmdname]]()
 

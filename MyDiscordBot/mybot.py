@@ -1,6 +1,6 @@
 import asyncio
 import discord
-import botcommands
+import botcommand
 
 client = discord.Client()
 
@@ -30,24 +30,28 @@ async def on_message(message):
 
     id = message.author.id  # id라는 변수에는 메시지를 보낸사람의 ID를 담습니다.
     channel = message.channel  # channel이라는 변수에는 메시지를 받은 채널의 ID를 담습니다.
-    try:
-        await client.send_message(channel, message_operate(message.content))
-    except Exception as b:
-        await client.send_message(channel, message_operate(b))
-        pass
 
-    '''
     if message.content.startswith('!커맨드'):
         await client.send_message(channel, '커맨드')
+    elif message.content.startswith('!시발'):
+        await client.send_message(channel, '욕하지마븅시나')
     else:
         await client.send_message(
             channel, "<@"+id+">님이 \""+message.content+"\"라고 말하였습니다.")
-'''
+
+    try:
+        await client.send_message(channel,
+                                  await message_operate(message.content))
+    except Exception as b:
+        await client.send_message(channel, b)
+        pass
 
 
-def message_operate(command):
-    if command in botcommands.commandlist.key:
-        return botcommands.runcommand(command)
+async def message_operate(command):
+    t = await botcommands.commandlist.key
+    if command in t:
+        res = await botcommands.runcommand(command)
+        return res
 
 
 client.run(token)
