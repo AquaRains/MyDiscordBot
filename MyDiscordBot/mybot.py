@@ -38,19 +38,18 @@ async def on_message(message):
     else:
         await client.send_message(
             channel, "<@"+id+">님이 \""+message.content+"\"라고 말하였습니다.")
-
-    try:
-        await client.send_message(channel,
-                                  await message_operate(message.content))
-    except Exception as b:
-        await client.send_message(channel, b)
-        pass
+        try:
+            await client.send_message(channel,
+                                      await message_operate(message.content))
+        except Exception as b:
+            await client.send_message(channel, b)
+            pass
 
 
 async def message_operate(command):
-    t = await botcommands.commandlist.key
+    t = botcommand.commandlist.keys()
     if command in t:
-        res = await botcommands.runcommand(command)
+        res = await botcommand.runcommand(command)
         return res
 
 
