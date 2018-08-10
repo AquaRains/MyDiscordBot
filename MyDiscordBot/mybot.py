@@ -14,6 +14,7 @@ client.messageecho = True
 async def on_ready():
     print("Logged in as ")  # 화면에 봇의 아이디, 닉네임이 출력됩니다.
     print(client.user.name)
+    
     print(client.user.id)
     print("===========")
     # 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
